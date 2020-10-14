@@ -2,15 +2,23 @@
   "name": "my-portforlio",
   "version": "0.0.0",
   "scripts": {
+    "heroku-postbuild": "ng build --prod",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "engines": {
+    "node" : "12.18.2",
+    "npm" : "6.14.5"
+  }
+  ,
   "private": true,
   "dependencies": {
+    "@angular/cli": "~9.1.9",
+    "@angular/compiler-cli": "~9.1.11",
     "@angular/animations": "~9.1.11",
     "@angular/cdk": "^10.2.4",
     "@angular/common": "~9.1.11",
@@ -25,10 +33,12 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@swimlane/ngx-charts": "^16.0.0",
     "bootstrap": "4.1.1",
+    "express": "^4.17.1",
     "ngx-bootstrap": "^6.1.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "typescript": "~3.8.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.9",
