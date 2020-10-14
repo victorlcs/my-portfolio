@@ -1,4 +1,4 @@
-<main role="main" class="inner cover">
+<main role="main" class="inner cover" *ngIf="!isMobile">
   <!-- <h1 class="cover-heading">My Work Experience</h1> -->
 
     <div class="container" >
@@ -72,6 +72,110 @@
           </div>
         </div>
         <div class="col-md-6 my-2" [@showRight]="workDescStates[2]">
+          <ngx-charts-pie-chart
+           #hi
+            [legendTitle] = "'Skills'"
+            [scheme]="colorScheme"
+            [results]="thirdChart"
+            [gradient]="true"
+            [legend]="false"
+            [legendPosition]="'right'"
+            [labels]="showLabels"
+            [doughnut]="true"
+            maxLabelLength="20"
+            style="fill: #a0aabe;"
+            (select)="onSelect($event)"
+            >
+            <ng-template #tooltipTemplate let-model="model">
+              <div>{{model.name}}</div>
+              <div>{{model.value}}%</div>
+            </ng-template>
+          </ngx-charts-pie-chart>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div @fadeUp>
+      <div *ngFor="let item of list">{{item}}</div>
+    </div> -->
+</main>
+
+<!-- For Mobile View -->
+
+<main role="main" class="inner cover" *ngIf="isMobile">
+  <!-- <h1 class="cover-heading">My Work Experience</h1> -->
+
+    <div class="container" >
+      <div class="row left-item work work-item">
+        <div class="col-md-6  my-2"  >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Software Engineer</h2>
+            <p class="lead">Consolsys Sdn Bhd.</p>
+            <p class="lead">2018 - Present.</p>
+            <!-- <span class="trigger-right" (click)="expand(0)"></span> -->
+          </div>
+        </div>
+        <div class="col-md-6 my-2">
+          <ngx-charts-bar-horizontal
+            [view]=""
+            [scheme]="colorScheme"
+            [results]="firstChart"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [legendPosition]="'bottom'"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [xScaleMax] = "maxRate"
+            style="fill: #a0aabe;"
+            (select)="onSelect($event)">
+          </ngx-charts-bar-horizontal>
+        </div>
+      </div>
+      <div class="row right-item work work-item">
+        <div class="col-md-6 my-2">
+          <div class="my-3 py-3">
+            <h2 class="display-5">Data Analyst Trainee</h2>
+            <p class="lead">Data Star Programme by The CADS.</p>
+            <p class="lead">6 months.</p>
+            <!-- <span class="trigger-left" (click)="expand(1)"></span> -->
+          </div>
+        </div>
+        <div class="col-md-6 my-2">
+          <ngx-charts-pie-chart
+           #hi
+            [legendTitle] = "'Skills'"
+            [scheme]="colorScheme"
+            [results]="secondChart"
+            [gradient]="true"
+            [legend]="false"
+            [legendPosition]="'bottom'"
+            [labels]="showLabels"
+            [doughnut]="true"
+            maxLabelLength="20"
+            style="fill: #a0aabe;"
+            (select)="onSelect($event)"
+            >
+            <ng-template #tooltipTemplate let-model="model">
+              <div>{{model.name}}</div>
+              <div>{{model.value}}%</div>
+            </ng-template>
+          </ngx-charts-pie-chart>
+        </div>
+      </div>
+      <div class="row left-item work work-item">
+        <div class="col-md-6 my-2">
+          <div class="my-3 py-3">
+            <h2 class="display-5">IT Audit Intern</h2>
+            <p class="lead">PWC.</p>
+            <p class="lead">6 months.</p>
+            <!-- <span class="trigger-right" (click)="expand(2)"></span> -->
+          </div>
+        </div>
+        <div class="col-md-6 my-2">
           <ngx-charts-pie-chart
            #hi
             [legendTitle] = "'Skills'"

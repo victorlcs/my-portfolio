@@ -16,6 +16,24 @@ html, body {
   overflow: hidden;
 }
 
+//Responsive settings
 @media screen and (max-width: 1450px) {
   html { font-size: 14px; }
+}
+
+//For Mobile
+@include media-breakpoint-down(xs) {
+  html, body {
+    overflow: scroll ;
+  }
+  .card {
+    height: auto !important;
+  }
+  .right-item, .left-item {
+    text-align: center !important;
+  }
+  .work-item {
+    padding: 5px;
+    margin: 5px;
+  }
 }

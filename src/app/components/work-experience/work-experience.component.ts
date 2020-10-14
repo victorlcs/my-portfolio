@@ -4,6 +4,7 @@ import { AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { firstChart, secondChart, thirdChart } from 'src/app/data/data';
 import { ChartModel } from 'src/app/models/chart-model';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-work-experience',
@@ -51,6 +52,7 @@ import { ChartModel } from 'src/app/models/chart-model';
   ]
 })
 export class WorkExperienceComponent implements OnInit, AfterViewInit  {
+  isMobile: boolean;
   workItemStates = ['normal', 'normal', 'normal'];
   workDescStates = ['hide', 'hide', 'hide'];
 
@@ -78,8 +80,18 @@ export class WorkExperienceComponent implements OnInit, AfterViewInit  {
   showLabels: boolean = true;
   isDoughnut: boolean = false;
   legendPosition: string = 'below';
-  //temp
-  constructor() { }
+
+  constructor(breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([
+      Breakpoints.HandsetPortrait
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.isMobile = true;
+      }else {
+        this.isMobile = false;
+      }
+    });
+   }
 
   onSelect(event) {
     console.log(event);

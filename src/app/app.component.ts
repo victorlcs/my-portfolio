@@ -12,7 +12,6 @@ export class AppComponent {
   title = 'Victor-Portfolio';
 
   prepareRoute(outlet: RouterOutlet) {
-    console.log(outlet.activatedRouteData.state);
     return outlet.activatedRouteData.state;
   }
 }
