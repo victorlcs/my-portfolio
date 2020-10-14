@@ -9,7 +9,7 @@ import { routerTransition } from './animations/router.animations';
   animations: [routerTransition]
 })
 export class AppComponent {
-  title = 'my-portforlio';
+  title = 'Victor-Portfolio';
 
   prepareRoute(outlet: RouterOutlet) {
     console.log(outlet.activatedRouteData.state);
