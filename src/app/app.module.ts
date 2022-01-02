@@ -14,6 +14,9 @@ import { WorkExperienceComponent } from './components/work-experience/work-exper
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -24,16 +27,19 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     WorkExperienceComponent,
     ContactComponent,
     MaskInputDirective,
-    ProjectsComponent
+    ProjectsComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxChartsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DeviceDetectorModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
