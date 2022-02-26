@@ -1,10 +1,17 @@
-
-import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  query,
+  stagger,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { firstChart, secondChart, thirdChart } from 'src/app/data/data';
+import * as chartData from 'src/app/data/data';
 import { ChartModel } from 'src/app/models/chart-model';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-work-experience',
@@ -12,54 +19,79 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
   styleUrls: ['./work-experience.component.scss'],
   animations: [
     trigger('expandRight', [
-      state('normal', style({
-        transform: 'translateX(100px)'
-      })),
-      state('expanded', style({
-        transform: 'translateX(0)'
-      })),
-      transition('normal <=> expanded', animate(200))
+      state(
+        'normal',
+        style({
+          transform: 'translateX(100px)',
+        })
+      ),
+      state(
+        'expanded',
+        style({
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('normal <=> expanded', animate(200)),
     ]),
     trigger('expandLeft', [
-      state('normal', style({
-        transform: 'translateX(-100px)'
-      })),
-      state('expanded', style({
-        transform: 'translateX(0)'
-      })),
-      transition('normal <=> expanded', animate(200))
+      state(
+        'normal',
+        style({
+          transform: 'translateX(-100px)',
+        })
+      ),
+      state(
+        'expanded',
+        style({
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('normal <=> expanded', animate(200)),
     ]),
     trigger('showRight', [
-      state('hide', style({
-        transform: 'translateX(100px)',
-        opacity: '0'
-      })),
-      state('show', style({
-        transform: 'translateX(0)'
-      })),
-      transition('hide <=> show', animate(200))
+      state(
+        'hide',
+        style({
+          transform: 'translateX(100px)',
+          opacity: '0',
+        })
+      ),
+      state(
+        'show',
+        style({
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('hide <=> show', animate(200)),
     ]),
     trigger('showLeft', [
-      state('hide', style({
-        transform: 'translateX(-100px)',
-        opacity: '0'
-      })),
-      state('show', style({
-        transform: 'translateX(0)'
-      })),
-      transition('hide <=> show', animate(200))
-    ])
-  ]
+      state(
+        'hide',
+        style({
+          transform: 'translateX(-100px)',
+          opacity: '0',
+        })
+      ),
+      state(
+        'show',
+        style({
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('hide <=> show', animate(200)),
+    ]),
+  ],
 })
-export class WorkExperienceComponent implements OnInit, AfterViewInit  {
+export class WorkExperienceComponent implements OnInit, AfterViewInit {
   isMobile: boolean;
-  workItemStates = ['normal', 'normal', 'normal'];
-  workDescStates = ['hide', 'hide', 'hide'];
+  workItemStates = ['normal', 'normal', 'normal', 'normal'];
+  workDescStates = ['hide', 'hide', 'hide', 'hide'];
 
   // NGX-Chart
-  firstChart: ChartModel[] = firstChart;
-  secondChart: ChartModel[] = secondChart;
-  thirdChart: ChartModel[] = thirdChart;
+  firstChart: ChartModel[] = chartData.firstChart;
+  secondChart: ChartModel[] = chartData.secondChart;
+  thirdChart: ChartModel[] = chartData.thirdChart;
+  billChart: ChartModel[] = chartData.billChart;
 
   showXAxis = true;
   showYAxis = true;
@@ -72,7 +104,7 @@ export class WorkExperienceComponent implements OnInit, AfterViewInit  {
   maxRate = 10;
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', 'purple', 'darkblue', 'white']
+    domain: ['#5AA454', '#A10A28', 'purple', 'darkblue', 'white'],
   };
 
   //Pie Chart
@@ -82,30 +114,31 @@ export class WorkExperienceComponent implements OnInit, AfterViewInit  {
   legendPosition: string = 'below';
 
   constructor(breakpointObserver: BreakpointObserver) {
-    breakpointObserver.observe([
-      Breakpoints.HandsetPortrait
-    ]).subscribe(result => {
-      if (result.matches) {
-        this.isMobile = true;
-      }else {
-        this.isMobile = false;
-      }
-    });
-   }
+    breakpointObserver
+      .observe([Breakpoints.HandsetPortrait])
+      .subscribe((result) => {
+        if (result.matches) {
+          this.isMobile = true;
+        } else {
+          this.isMobile = false;
+        }
+      });
+  }
 
   onSelect(event) {
     console.log(event);
   }
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   expand(index: number) {
-    this.workItemStates[index] === 'normal' ? this.workItemStates[index] = 'expanded' : this.workItemStates[index] = 'normal';
-    this.workDescStates[index] === 'hide' ? this.workDescStates[index] = 'show' : this.workDescStates[index] = 'hide';
+    this.workItemStates[index] === 'normal'
+      ? (this.workItemStates[index] = 'expanded')
+      : (this.workItemStates[index] = 'normal');
+    this.workDescStates[index] === 'hide'
+      ? (this.workDescStates[index] = 'show')
+      : (this.workDescStates[index] = 'hide');
   }
-
 }

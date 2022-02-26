@@ -2,16 +2,44 @@
   <!-- <h1 class="cover-heading">My Work Experience</h1> -->
 
     <div class="container" >
+      <div class="row right-item work">
+        <div class="col-md-6 my-2"  [@showLeft]="workDescStates[0]">
+          <ngx-charts-bar-vertical
+            [view]=""
+            [scheme]="colorScheme"
+            [results]="billChart"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="false"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [yScaleMax] = "maxRate"
+            style="fill: #a0aabe;"
+            (select)="onSelect($event)">
+          </ngx-charts-bar-vertical>
+        </div>
+        <div class="col-md-6 work-item my-2" [@expandLeft]="workItemStates[0]" >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Frontend Developer</h2>
+            <p class="lead">Billennium IT Services (M) Sdn Bhd.</p>
+            <p class="lead">2021 - Present.</p>
+            <span class="trigger-left" (click)="expand(0)"></span>
+          </div>
+        </div>
+      </div>
       <div class="row left-item work">
-        <div class="col-md-6 work-item my-2" [@expandRight]="workItemStates[0]" >
+        <div class="col-md-6 work-item my-2" [@expandRight]="workItemStates[1]" >
           <div class="my-3 py-3">
             <h2 class="display-5">Software Engineer</h2>
             <p class="lead">Consolsys Sdn Bhd.</p>
-            <p class="lead">2018 - Present.</p>
-            <span class="trigger-right" (click)="expand(0)"></span>
+            <p class="lead">2018 - 2021.</p>
+            <span class="trigger-right" (click)="expand(1)"></span>
           </div>
         </div>
-        <div class="col-md-6 my-2"  [@showRight]="workDescStates[0]">
+        <div class="col-md-6 my-2"  [@showRight]="workDescStates[1]">
           <ngx-charts-bar-vertical
             [view]=""
             [scheme]="colorScheme"
@@ -31,7 +59,7 @@
         </div>
       </div>
       <div class="row right-item work">
-        <div class="col-md-6 my-2" [@showLeft]="workDescStates[1]">
+        <div class="col-md-6 my-2" [@showLeft]="workDescStates[2]">
           <ngx-charts-pie-chart
            #hi
             [legendTitle] = "'Skills'"
@@ -52,26 +80,26 @@
             </ng-template>
           </ngx-charts-pie-chart>
         </div>
-        <div class="col-md-6 work-item my-2" [@expandLeft]="workItemStates[1]">
+        <div class="col-md-6 work-item my-2" [@expandLeft]="workItemStates[2]">
           <div class="my-3 py-3">
             <h2 class="display-5">Data Analyst Trainee</h2>
             <p class="lead">Data Star Programme by The CADS.</p>
             <p class="lead">6 months.</p>
-            <span class="trigger-left" (click)="expand(1)"></span>
+            <span class="trigger-left" (click)="expand(2)"></span>
           </div>
         </div>
 
       </div>
-      <div class="row left-item work">
-        <div class="col-md-6 work-item my-2" [@expandRight]="workItemStates[2]">
+      <!-- <div class="row left-item work">
+        <div class="col-md-6 work-item my-2" [@expandRight]="workItemStates[3]">
           <div class="my-3 py-3">
             <h2 class="display-5">IT Audit Intern</h2>
             <p class="lead">PWC.</p>
             <p class="lead">6 months.</p>
-            <span class="trigger-right" (click)="expand(2)"></span>
+            <span class="trigger-right" (click)="expand(3)"></span>
           </div>
         </div>
-        <div class="col-md-6 my-2" [@showRight]="workDescStates[2]">
+        <div class="col-md-6 my-2" [@showRight]="workDescStates[3]">
           <ngx-charts-pie-chart
            #hi
             [legendTitle] = "'Skills'"
@@ -92,7 +120,7 @@
             </ng-template>
           </ngx-charts-pie-chart>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- <div @fadeUp>
