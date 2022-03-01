@@ -1,5 +1,10 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { angularIcon, bootstrapIcon } from 'src/app/fort-icons/fort-icon';
+import {
+  angularIcon,
+  bootstrapIcon,
+  nodeJsIcon,
+  awsIcon,
+} from 'src/app/fort-icons/fort-icon';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -12,6 +17,8 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class ProjectsComponent implements OnInit {
   angularIcon = angularIcon;
   bootstrapIcon = bootstrapIcon;
+  nodeJsIcon = nodeJsIcon;
+  awsIcon = awsIcon;
   bsModalRef?: BsModalRef;
 
   constructor(

@@ -26,18 +26,19 @@
     <div class="card mb-3 text-white bg-dark shadow " style="max-width: 540px;">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="../../../assets/project-picture/datingapp.jpg" class="card-img" alt="...">
+          <img src="../../../assets/project-picture/mean.jpg" class="card-img" (click)="goToLink('https://victorlcs.space/',true)">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">(WIP) Dating App</h5>
+            <h5 class="card-title">(WIP) MEAN Stack Application</h5>
             <p class="card-text">
-              A basic Dating website with authentication function, live chat function and . Frontend using Angular 2+ with NgxBootstrap,
-              backend with ASP.net 5 and mysql for database.
+              Originally created by following Udemy's Mean Stack course. Modified and added by myself with NGRX state management, redirect HTTP to HTTPS by creating SSL certification and 
+              hosted with self purchased custom domain name with AWS. Basically a application for me to play around with MEAN stack + AWS hosting. 
             </p>
 
             <fa-icon class="angular-icon" [icon]="angularIcon" size="3x"></fa-icon>
-            <fa-icon class="bootstrap-icon" [icon]="bootstrapIcon" size="3x"></fa-icon>
+            <fa-icon class="node-icon" [icon]="nodeJsIcon" size="3x"></fa-icon>
+            <fa-icon class="aws-icon" [icon]="awsIcon" size="3x"></fa-icon>
 
           </div>
         </div>

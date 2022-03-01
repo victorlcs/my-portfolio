@@ -1,6 +1,8 @@
 .card {
   border: black 1px solid;
-  height: 250px;
+  //height: 250px;
+  //height: auto;
+  min-height: 250px;
   justify-content: center;
   padding: 0 5px 0 5px;
   cursor: pointer;
@@ -17,5 +19,8 @@
   }
   .angular-icon {
     color: darkred;
+  }
+  .node-icon {
+    color: green;
   }
 }
